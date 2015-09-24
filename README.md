@@ -1,3 +1,9 @@
-# Evangelion-Uebersicht-Widget
+# another evangelion dashboard
 ## Installation
-Who am I kidding, the only thing you need to know is this is a widget for Übersicht, http://tracesof.net/uebersicht/
+
+1. Download [Übersicht](http://tracesof.net/uebersicht/)
+2. Place in widgets folder
+
+## Screenshot
+
+![Screenshot](/screenshot.png)

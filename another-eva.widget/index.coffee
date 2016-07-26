@@ -161,7 +161,7 @@ style: """
         margin-top: 10px
         font-size: 30px
     .lower-small
-        margin-top: 10px
+        margin-top: 11px
         font-size: 14px
     .lowest-small
         margin-top: 40px
@@ -696,6 +696,5 @@ update: (output, domEl) ->
         warning_off()
 
     #debug_mode()
-
 
 

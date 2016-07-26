@@ -150,12 +150,13 @@ style: """
         font-size: 40px
         width: 100px
         margin-left: -19px
+        position: absolute
     .upper
         margin-top: -20px
         font-size: 15px
     .upper-small
         margin-top: -15px
-        font-size: 11px
+        font-size: 10px
     .lower
         margin-top: 10px
         font-size: 30px
@@ -490,17 +491,11 @@ render: -> """
 command: "
 
 pmset -g batt | grep \"%\" | awk 'BEGINN { FS = \";\" };
-
 { print $1,$2,$3 }' | sed -e 's/-I/I/' -e 's/-0//' -e 's/;//' -e 's/;//' && ps aux  | awk 'BEGIN { sum = 0 }  { sum += $3 };
-
 END { print sum }' && sysctl hw.ncpu | awk '{print $2}' && ps aux  | awk 'BEGIN { sum = 0 }  { sum += $4 }; 
-
 END { print sum }' && du -ch ~/.Trash | grep total | cut -c 1-5; 
-
 ps axro \"pid, %cpu, ucomm\" | awk 'FNR>1' | head -n 3 | awk '{ printf \"%5.1f,%s,%s\\n\", $2, $3, $1}' | sed 's/ *//' | tr '\n' ' ' | awk '{print $0,\"\"}'; 
-
 ps axo \"rss,pid,ucomm\" | sort -nr | head -n3 | awk '{printf \"%8.0f,%s,%s\\n\", $1/1024, $3, $2}' | sed 's/ *//' | tr '\n' ' '| awk '{print $0,\"\"}'; 
-
 uptime 2> /dev/null | awk '{print $(NF-2), $(NF-1), $(NF)}'; "
 
 update: (output, domEl) ->
@@ -701,5 +696,6 @@ update: (output, domEl) ->
         warning_off()
 
     #debug_mode()
+
 
 
